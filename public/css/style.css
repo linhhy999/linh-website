@@ -1,0 +1,16 @@
+body {
+    background-image: url("../img/index-background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: middle top;
+    background-size: cover;
+}
+
+.loginform {
+    width: 30%;
+    padding: 10px;
+}
+
+.center-content {
+    text-align: center;
+}

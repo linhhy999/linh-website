@@ -1,0 +1,42 @@
+extends layout
+
+block content
+    title Linh's website
+    .container.loginform.center-content.col-md-4.offset-md-2
+        h1 Welcome to Linh's website
+        h2#form_title Log in now!
+        form#dangnhap-dangky(action='/',method="POST")
+            .form-group.col-md-8.offset-md-2(style="text-align: left")
+                label(for="username") Your account:
+                input#name.form-control(type="text" name="username")
+            .form-group.col-md-8.offset-md-2(style="text-align: left")
+                label(for="password") Your password:
+                input#password.form-control(type="password" name="password")
+            #passwordconfirm.form-group.col-md-8.offset-md-2(hidden style="text-align: left")
+                input#typee(type="hidden" value="LogIn" name="typee")
+                label(for="confirmpassword") Confirm your password:
+                input#confirmpassword.form-control(type="password" name="confirmpassword")
+            .container
+                input.btn.btn-info(type="button" value="Log in" onclick="login()")
+                input.btn.btn-primary(type="button" value="Sign up" onclick="signup()")
+            p#errmessage(style=text hidden=!loginfail) #{errText}
+    script.
+        function signup(){
+            if (document.getElementById("passwordconfirm").hidden){
+                document.getElementById("form_title").innerHTML="Sign up now!"
+                document.getElementById("passwordconfirm").hidden=false;
+            }
+            else{
+                document.getElementById("typee").value="SignUp";
+                document.getElementById("dangnhap-dangky").submit();
+                document.getElementById("typee").value="LogIn";
+            }
+        }
+        function login(){
+            if (document.getElementById("passwordconfirm").hidden)
+                document.getElementById("dangnhap-dangky").submit();
+            else{
+                document.getElementById("form_title").innerHTML="Log in now!"
+                document.getElementById("passwordconfirm").hidden=true;
+            }
+        }

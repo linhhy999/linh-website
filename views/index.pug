@@ -19,7 +19,7 @@ block content
             .container
                 input.btn.btn-info(type="button" value="Log in" onclick="login()")
                 input.btn.btn-primary(type="button" value="Sign up" onclick="signup()")
-            p#errmessage(style=text hidden=!loginfail) #{errText}
+            h3#errmessage(style=textColor hidden=!loginfail) #{errText}
     script.
         function signup(){
             if (document.getElementById("passwordconfirm").hidden){
